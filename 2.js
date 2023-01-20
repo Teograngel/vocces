@@ -2,7 +2,18 @@
 // Dada una matriz de N elementos repetidos,
 // crea una función numbersTop para obtener los tres elementos más repetidos ordenados de forma descendente por número de repeticiones.
 
-function numbersTop(array) {
+function numbersTop( data ) {
+
+    const posicion = [];
+    const contadorValor = data.reduce((prev, cur) => ((prev[cur] = prev[cur] + 1 || 1), prev), {});
+
+    Object.entries( contadorValor ).forEach(([ key, val ]) => {
+        posicion[ val ] = key;
+    });
+
+    resultadoLimpio = posicion.filter(Boolean);
+    console.log( resultadoLimpio[ resultadoLimpio.length -1 ], resultadoLimpio[ resultadoLimpio.length -2 ], resultadoLimpio[ resultadoLimpio.length -3 ] );
+    
 }
 
 /**
